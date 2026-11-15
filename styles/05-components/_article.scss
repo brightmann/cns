@@ -7,6 +7,28 @@
 
 }
 
+// pagination: Previous | 1 | 2 | ... | N | Next
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5em;
+  align-items: center;
+  margin: 2em 0;
+
+  a, span {
+    padding: 0.25em 0.6em;
+  }
+
+  .pagination-current {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+
+  .pagination-disabled {
+    opacity: 0.4;
+  }
+}
+
 .time, .words {
   display: inline-block;
   font-size: 0.8rem;

@@ -1,11 +1,13 @@
 import { getAllFiles } from '../../lib/posts-md';
 import Layout from '../../components/layout';
 import Pagelink from '../../components/pagelink';
+import Pagination from '../../components/pagination';
 import Head from 'next/head';
 
 const postsDir = 'articles';
+const postsPerPage = 5;
 
-export default function ArticleIndex({ postData }) {
+export default function ArticleIndex({ postData, totalPages }) {
 
   return (
 
@@ -34,6 +36,8 @@ export default function ArticleIndex({ postData }) {
 
       </aside>
 
+      <Pagination currentPage={ 1 } totalPages={ totalPages } basePath="/articles" />
+
     </Layout>
 
   );
@@ -41,12 +45,16 @@ export default function ArticleIndex({ postData }) {
 }
 
 
-// fetch array of all article posts
+// fetch first page of article posts
 export async function getStaticProps() {
+
+  const all = await getAllFiles(postsDir);
+  const totalPages = Math.max(1, Math.ceil(all.length / postsPerPage));
 
   return {
     props: {
-      postData: await getAllFiles(postsDir)
+      postData: all.slice(0, postsPerPage),
+      totalPages
     }
   }
 
