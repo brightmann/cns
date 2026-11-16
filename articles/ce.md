@@ -1,7 +1,7 @@
 ---
 title: 稀奇古怪的中国经济
 description: 这是一篇文章
-date: 2026-11-15
+date: 2026-11-15T10:00
 tags:
   - misc1
   - misc2

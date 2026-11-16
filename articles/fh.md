@@ -1,7 +1,7 @@
 ---
 title: 战马
 description: 这是一篇文章
-date: 2026-11-15
+date: 2026-11-15T09:10
 tags:
   - misc1
   - misc2
